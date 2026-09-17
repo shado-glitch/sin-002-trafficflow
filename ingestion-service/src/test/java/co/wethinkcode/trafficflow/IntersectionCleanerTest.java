@@ -42,14 +42,48 @@ public class IntersectionCleanerTest {
     }
 
     @Test
-void shouldConvertMissingSignalTypeToNull() {
+    void shouldConvertMissingSignalTypeToNull() {
 
-    assertEquals(null,IntersectionCleaner.cleanSignalType(""));
-    assertEquals(null,IntersectionCleaner.cleanSignalType("unknown"));
-    assertEquals(null,IntersectionCleaner.cleanSignalType("N/A"));
-    assertEquals(null,IntersectionCleaner.cleanSignalType("TBD"));
-    assertEquals(null,IntersectionCleaner.cleanSignalType("-"));
-}
+        assertEquals(null,IntersectionCleaner.cleanSignalType(""));
+        assertEquals(null,IntersectionCleaner.cleanSignalType("unknown"));
+        assertEquals(null,IntersectionCleaner.cleanSignalType("N/A"));
+        assertEquals(null,IntersectionCleaner.cleanSignalType("TBD"));
+        assertEquals(null,IntersectionCleaner.cleanSignalType("-"));
+    }
+
+    @Test
+    void shouldConvertTrueValues() {
+
+        assertEquals(true,IntersectionCleaner.cleanBoolean("Y"));
+        assertEquals(true,IntersectionCleaner.cleanBoolean("yes"));
+        assertEquals(true,IntersectionCleaner.cleanBoolean("1"));
+        assertEquals(true,IntersectionCleaner.cleanBoolean("TRUE"));
+    }
+
+    @Test
+    void shouldConvertFalseValues() {
+
+        assertEquals(false,IntersectionCleaner.cleanBoolean("N"));
+        assertEquals(false,IntersectionCleaner.cleanBoolean("no"));
+        assertEquals(false,IntersectionCleaner.cleanBoolean("0"));
+        assertEquals(false,IntersectionCleaner.cleanBoolean("FALSE"));
+    }
+
+    @Test
+    void shouldConvertUnknownBooleanToNull() {
+
+        assertEquals(null,IntersectionCleaner.cleanBoolean("unknown"));
+    }
+
+    @Test
+    void shouldLoadIntersectionsFromCsv() {
+
+        IntersectionRepository repository =IntersectionCsvReader.load();
+
+        assertEquals(17,repository.findAll().size());
+    }
+
+    
 
 
 

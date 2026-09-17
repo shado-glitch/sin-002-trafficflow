@@ -77,4 +77,31 @@ public class IntersectionCleaner {
 
         return value.equals("n/a")|| value.equals("tbd") || value.equals("unknown") || value.equals("-") || value.equals("nan");
     }
+
+    public static Boolean cleanBoolean(String value) {
+
+    if (value == null) {
+        return null;
+    }
+
+    String cleaned = value.trim().toLowerCase();
+
+    switch (cleaned) {
+
+        case "y":
+        case "yes":
+        case "1":
+        case "true":
+            return true;
+
+        case "n":
+        case "no":
+        case "0":
+        case "false":
+            return false;
+
+        default:
+            return null;
+        }
+    }
 }
