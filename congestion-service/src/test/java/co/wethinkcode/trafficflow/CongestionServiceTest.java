@@ -12,4 +12,13 @@ class CongestionServiceTest {
 
         assertEquals(0, service.getCongestionLevel());
     }
+
+    @Test
+    void canSetValidCongestionLevel() {
+        CongestionServiceApp service = new CongestionServiceApp();
+
+        service.setCongestionLevel(5);
+
+        assertEquals(5, service.getCongestionLevel());
+    }
 }
