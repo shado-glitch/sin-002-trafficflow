@@ -11,6 +11,12 @@ public class CongestionServiceApp {
     }
 
     public void setCongestionLevel(int level) {
+        
+         if (level < 0 || level > 8) {
+            throw new IllegalArgumentException(
+                    "Congestion level must be between 0 and 8"
+            );
+        }
         this.congestionLevel = level;
     }
 
