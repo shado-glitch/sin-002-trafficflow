@@ -4,6 +4,12 @@ import io.javalin.Javalin;
 
 public class CongestionServiceApp {
 
+    private int congestionLevel = 0;
+
+    public int getCongestionLevel() {
+        return congestionLevel;
+    }
+
     public static void main(String[] args) {
         Javalin app = Javalin.create().start(7022);
 
