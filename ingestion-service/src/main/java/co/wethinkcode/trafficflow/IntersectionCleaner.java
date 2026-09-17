@@ -17,6 +17,25 @@ public class IntersectionCleaner {
         return cleaned.toUpperCase();
     }
 
+    public static String cleanSignalType(String value) {
+
+        if (value == null) {
+            return null;
+        }
+
+        String cleaned =value.trim().replaceAll("\\s+", " ").toLowerCase();
+
+        if (cleaned.isEmpty()) {
+            return null;
+        }
+
+        if (isMissingValue(cleaned)) {
+            return null;
+        }
+
+        return cleaned;
+    }
+
     public static String cleanDistrict(String value) {
 
         if (value == null) {
@@ -52,5 +71,10 @@ public class IntersectionCleaner {
             }
 
         return result.toString();
+    }
+
+    private static boolean isMissingValue(String value) {
+
+        return value.equals("n/a")|| value.equals("tbd") || value.equals("unknown") || value.equals("-") || value.equals("nan");
     }
 }
