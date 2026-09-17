@@ -10,6 +10,10 @@ public class CongestionServiceApp {
         return congestionLevel;
     }
 
+    public void setCongestionLevel(int level) {
+        this.congestionLevel = level;
+    }
+
     public static void main(String[] args) {
         Javalin app = Javalin.create().start(7022);
 
