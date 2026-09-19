@@ -51,4 +51,15 @@ class CongestionServiceTest {
                 () -> service.setCongestionLevel(9)
         );
     }
+    @Test
+    void levelZeroIsValid() {
+
+        CongestionServiceApp service = new CongestionServiceApp();
+
+        service.setCongestionLevel(0);
+
+        assertEquals(0,service.getCongestionLevel());
+    }
+
+
 }
