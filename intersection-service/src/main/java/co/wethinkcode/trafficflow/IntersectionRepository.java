@@ -7,7 +7,8 @@ import java.util.Map;
 
 public class IntersectionRepository {
 
-    private final Map<String, Intersection> intersections = new LinkedHashMap<>();
+    private final Map<String, Intersection> intersections =
+            new LinkedHashMap<>();
 
     public void add(Intersection intersection) {
 
@@ -15,7 +16,10 @@ public class IntersectionRepository {
             return;
         }
 
-        String id = intersection.getId().trim().toUpperCase();
+        String id =
+                intersection.getId()
+                        .trim()
+                        .toUpperCase();
 
         if (intersections.containsKey(id)) {
             System.out.println(
@@ -32,22 +36,26 @@ public class IntersectionRepository {
             return null;
         }
 
-        String cleanedId = id.trim().toUpperCase();
+        String cleanedId =
+                id.trim().toUpperCase();
 
         return intersections.get(cleanedId);
     }
 
     public List<Intersection> findByDistrict(String district) {
 
-        List<Intersection> results = new ArrayList<>();
+        List<Intersection> results =
+                new ArrayList<>();
 
         if (district == null) {
             return results;
         }
 
-        String cleanedDistrict = district.trim();
+        String cleanedDistrict =
+                district.trim();
 
-        for (Intersection intersection : intersections.values()) {
+        for (Intersection intersection :
+                intersections.values()) {
 
             if (intersection.getDistrict() != null
                     && intersection.getDistrict()
@@ -62,7 +70,9 @@ public class IntersectionRepository {
     }
 
     public List<Intersection> findAll() {
-        return new ArrayList<>(intersections.values());
+        return new ArrayList<>(
+                intersections.values()
+        );
     }
 
     public void clear() {
