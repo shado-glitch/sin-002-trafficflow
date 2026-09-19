@@ -3,6 +3,9 @@ package co.wethinkcode.trafficflow;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import co.wethinkcode.trafficflow.Exception.DependencyException;
+import co.wethinkcode.trafficflow.Exception.UnknownIntersectionException;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
